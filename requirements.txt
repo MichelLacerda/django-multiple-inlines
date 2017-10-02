@@ -1,0 +1,7 @@
+Django==1.10
+django-bootstrap3==8.2.1
+psycopg2==2.5.2
+djangorestframework==3.6.2
+django-nested-formset
+#django-formset
+django-template-debug==0.3.5

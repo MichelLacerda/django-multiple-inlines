@@ -1,0 +1,28 @@
+{% load bootstrap3 formset_tags %}
+
+{% with formset=inlines.address.inlines.attachment.formset  %}
+	<section id="{{ formset.prefix }}" data-formset-prefix="{{ formset.prefix }}">
+		{{ formset.management_form }}
+
+		<div data-formset-body>
+			{% for form in formset %}
+				<div data-formset-form>
+					{% bootstrap_form form %}
+					<button type="button" class="btn btn-danger" data-formset-delete-button><i class="fa fa-trash"></i> Remove</button>
+				</div>
+			{% endfor %}
+		</div>
+
+		<script type="form-template" data-formset-empty-form>
+			{% escapescript %}
+				<div data-formset-form>
+					{% bootstrap_form formset.empty_form %}
+					<button type="button" class="btn btn-danger" data-formset-delete-button><i class="fa fa-trash"></i> Remove</button>
+				</div>
+			{% endescapescript %}
+		</script>
+
+		<br>
+		<button type="button" class="btn btn-primary " data-formset-add><i class="fa fa-plus"></i> Add Attachment</button>
+	</section>
+{% endwith %}
